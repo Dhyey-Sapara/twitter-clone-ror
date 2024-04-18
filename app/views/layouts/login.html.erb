@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TwitterClone</title>
+    <title>Twitter Clone</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +11,6 @@
   </head>
 
   <body class="bg-sky-100 dark:bg-slate-800">
-    <% flash.each do |type, msg| %>
-      <div class="w-1/4 mx-auto text-sm mt-10 p-3 bg-red-50 border border-red-500 text-red-900 rounded-md">
-        <%= msg %>
-      </div>
-    <% end %>
     <%= yield %>
   </body>
 </html>
