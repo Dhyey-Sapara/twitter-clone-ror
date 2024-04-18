@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_secure_token :remember_token
   has_secure_password
 
+  has_many :tweets
+
   before_save :email_downcase
 
   validates :email, :username, uniqueness: true

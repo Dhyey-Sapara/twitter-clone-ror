@@ -11,11 +11,21 @@
   </head>
 
   <body class="bg-sky-100 dark:bg-slate-800">
+    <%= render 'shared/navbar' %>
     <% flash.each do |type, msg| %>
-      <div class="w-1/4 mx-auto text-sm mt-10 p-3 bg-red-50 border border-red-500 text-red-900 rounded-md">
-        <%= msg %>
-      </div>
+      <% if notice %>
+        <div class="w-1/4 mx-auto text-sm mt-10 p-3 bg-green-50 border border-green-500 text-green-900 rounded-md">
+          <%= msg %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="w-1/4 mx-auto text-sm mt-10 p-3 bg-red-50 border border-red-500 text-red-900 rounded-md">
+          <%= msg %>
+        </div>
+      <% end %>
     <% end %>
-    <%= yield %>
+    <div class="mx-auto">
+      <%= yield %>
+    </div>
   </body>
 </html>

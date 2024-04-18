@@ -1,0 +1,10 @@
+<div id="<%= dom_id tweet %>" class="mb-3 max-w-sm mx-auto p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700">
+    <p>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= tweet.heading %></h5>
+    </p>
+    <p class="mb-1 font-normal text-gray-700 dark:text-gray-200"><%= tweet.body %></p>
+    <p class="mb-3 font-normal text-end text-gray-700 dark:text-gray-200">- 
+      <%= tweet.user.username %>
+    </p>
+    <%= action_btn(tweet) %>
+</div>

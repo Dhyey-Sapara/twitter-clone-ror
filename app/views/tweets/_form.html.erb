@@ -1,0 +1,28 @@
+<div class="max-w-xl mx-auto">
+
+<%= form_with(model: tweet) do |form| %>
+  <div>
+    <div class="mb-5">
+        <%= form.label :heading, class: "form-label" %>
+        <%= form.text_field :heading, class: "form-text-field" %>
+        <% if tweet.errors[:heading].any?%>
+          <p class="form-error-message">Heading is empty</p>
+        <% end %>
+    </div>
+    <div class="mb-5">
+        <%= form.label :body, class: "form-label" %>
+        <%= form.text_area :body, size: "60x5", class: "form-text-field" %>
+        <% if tweet.errors[:body].any?%>
+          <p class="form-error-message">Body is empty</p>
+        <% end %>
+    </div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <% if !user_signed_in? %>
+      <p class="form-error-message">Please Sign In to create Tweet</p>
+    <% end %>
+  </div>
+  <div class="mx-auto text-center">
+    <%= form.submit "Create Tweet", class: "btn green-btn" %>
+  </div>
+<% end %>
+</div>

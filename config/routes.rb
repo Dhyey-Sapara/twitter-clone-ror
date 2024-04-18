@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tweets, except: %i[show]
   get "up" => "rails/health#show", as: :rails_health_check
   namespace :user do
     #login routes
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'registerations#new'
     post 'sign_up', to: 'registerations#create'
   end
+
+  root "tweets#index"
 end

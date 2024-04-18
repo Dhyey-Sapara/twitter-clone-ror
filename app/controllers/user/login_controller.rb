@@ -12,7 +12,7 @@ class User::LoginController < ApplicationController
       if @user.authenticate(params[:user][:password])
         login @user
         remember(@user) if params[:user][:remember_me] == "1"
-        redirect_to root_path, notice: 'You are successfully Signed In!'
+        redirect_to root_path
       else
         flash.now[:alert] = 'Incorrect Password.'
         render :new, status: :unprocessable_entity
@@ -26,6 +26,6 @@ class User::LoginController < ApplicationController
   def destroy
     forget(current_user) if cookies[:remember_token].present?
     logout
-    redirect_to root_path, notice: 'Signed out.'
+    redirect_to root_path, alert: "Logged out"
   end
 end
