@@ -27,7 +27,7 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      redirect_to tweets_path, status: 200
+      redirect_to tweets_path
     else
       render :edit, status: :unprocessable_entity
     end
