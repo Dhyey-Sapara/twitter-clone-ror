@@ -1,24 +1,17 @@
-# README
+# Twitter Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### This is a twitter clone with following funcationalities:
 
-Things you may want to cover:
+* Create Functionality to post text messages on the wall and list them in a simple UI.
+* There should be a feature to Index, Create, Update, Delete tweet messages via Ajax Call.
+* Users can log in/signup.
+* Users can follow/unfollow other users.
+* Users can post images/videos in tweets.
 
-* Ruby version
+To run the project, do the following:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. run ` git clone `
+2. create a .env file
+3. Add 'DB_USERNAME' and 'DB_PASSWORD'
+4. Run ` bundle install `
+5. start the server using ` bin/dev `
