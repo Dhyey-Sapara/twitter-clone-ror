@@ -1,7 +1,10 @@
-<div class="max-w-xl mx-auto">
+<div class="max-w-lg mx-auto my-2">
 
 <%= form_with(model: tweet) do |form| %>
   <div>
+    <div class="text-center">
+      <%= link_to "Cancel", tweets_path, class: "ms-1 text-sm text-red-600 font-medium text-gray-900" %>
+    </div>
     <div class="mb-5">
         <%= form.label :heading, class: "form-label" %>
         <%= form.text_field :heading, class: "form-text-field" %>
@@ -16,13 +19,20 @@
           <p class="form-error-message">Body is empty</p>
         <% end %>
     </div>
+    <div class="mb-5">
+        <%= form.label :tweet_post, class: "form-label" %>
+        <%= form.file_field :tweet_post, class: "form-text-field" %>
+        <% if tweet.errors[:tweet_post].any?%>
+          <p class="form-error-message">Only JPEG or PNG or MP4 files are allowed</p>
+        <% end %>
+    </div>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <% if !user_signed_in? %>
       <p class="form-error-message">Please Sign In to create Tweet</p>
     <% end %>
   </div>
   <div class="mx-auto text-center">
-    <%= form.submit "Create Tweet", class: "btn green-btn" %>
+    <%= form.submit tweet.id ? 'Update Tweet' : 'Create Tweet', class: "btn green-btn" %>
   </div>
 <% end %>
 </div>

@@ -1,9 +1,11 @@
 <div class="text-heading">
-  <h1>Tweets</h1>
+  <h1>New Tweet</h1>
 </div>
 
-<%= render "form", tweet: @tweet %>
+<%= turbo_frame_tag Tweet.new do %>
+  <%= render "form", tweet: @tweet %>
+<% end %>
 
 <div class="max-w-fit mx-auto mt-5">
-  <%= link_to 'Back to tweets', tweets_path, class: "btn blue-btn" %>
+    <%= link_to 'Back to tweets', tweets_path, class: "btn blue-btn" %>
 </div>

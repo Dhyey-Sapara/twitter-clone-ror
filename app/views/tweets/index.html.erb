@@ -3,9 +3,12 @@
   <%= create_tweet_btn %>
 </div>
 
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-  <% end %>
-</div>
+<%= turbo_frame_tag Tweet.new %>
 
+<%= turbo_frame_tag "tweets" do %>
+  <div id="tweets">
+    <% @tweets.each do |tweet| %>
+      <%= render tweet %>
+    <% end %>
+  </div>
+<% end %>

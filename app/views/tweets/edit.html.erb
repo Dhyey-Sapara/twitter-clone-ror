@@ -2,9 +2,9 @@
   <h1>Edit Tweet  </h1>
 </div>
 
-<%= render "form", tweet: @tweet %>
-
-<br>
+<%= turbo_frame_tag @tweet do %>
+  <%= render "form", tweet: @tweet %>
+<% end %>
 
 <div class="max-w-fit mx-auto text-white">
   <%= link_to "Back to tweets", tweets_path %>
