@@ -1,0 +1,20 @@
+<div id="<%= dom_id @user %>" class="my-3 max-w-sm text-center mx-auto p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700">
+  <div>
+    <p>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= @user.username %></h5>
+    </p>
+    <p class="dark:text-white">
+      <%= turbo_frame_tag "follower_count" do %>
+        <%= @followers.count %>
+      <% end %> Followers | <%= @followees.count %> Following
+    </p>
+  </div>
+  <p class="mb-1 font-normal text-sm text-gray-700 dark:text-gray-200"><%= @user.email %></p>
+    <% if current_user.id != @user.id %>
+      <div class="mt-5">
+        <%= turbo_frame_tag "follow_btn_#{@user.id}" do %>
+          <%= render 'follow_btn', user: @user %>
+        <% end %>
+      </div>
+    <% end %>
+</div>

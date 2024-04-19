@@ -7,7 +7,7 @@
     <p class="mb-1 font-normal text-gray-700 dark:text-gray-200"><%= tweet.body %></p>
     <%= get_tweet_post(tweet) %>
     <p class="mb-3 font-normal text-end text-gray-700 dark:text-gray-200">- 
-      <%= tweet.user.username %>
+      <%= link_to tweet.user.username, user_profile_path(tweet.user), data: { turbo: false } %>
     </p>
     <%= action_btn(tweet) %>
 </div>

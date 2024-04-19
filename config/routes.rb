@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     #registerations route
     get 'sign_up', to: 'registerations#new'
     post 'sign_up', to: 'registerations#create'
+
+    get 'profile/:id', to: 'profile#show', as: 'profile'
+    post 'follow', to: 'profile#follow'
+    delete 'unfollow', to: 'profile#unfollow'
   end
 
   root "tweets#index"
