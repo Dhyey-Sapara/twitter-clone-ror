@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[ edit update destroy ]
+  before_action :redirect_if_not_logged_in, only: %i[ new edit create update destroy ]
 
   def index
     @tweets = Tweet.includes(:user, tweet_post_attachment: :blob).order(id: :desc)

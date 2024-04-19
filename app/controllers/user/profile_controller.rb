@@ -1,5 +1,7 @@
 class User::ProfileController < ApplicationController
   before_action :set_user, only: [:follow, :unfollow]
+  before_action :redirect_if_not_logged_in
+
   def show
     @user = User.includes(:followed_users, :following_users).find(params[:id])
     @followers = @user.following_users
