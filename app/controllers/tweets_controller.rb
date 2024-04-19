@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       respond_to do |format|
-        format.html { redirect_to tweets_path, notice: "Tweet was successfully created." }
+        format.html { redirect_to tweets_path, status: 201 }
         format.turbo_stream
       end
     else
@@ -27,7 +27,7 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      redirect_to tweets_path, notice: "Tweet was successfully updated."
+      redirect_to tweets_path, status: 200
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     respond_to do |format|
-      format.html { redirect_to tweets_path, alert: "Tweet was successfully destroyed." }
+      format.html { redirect_to tweets_path, status: 200 }
       format.turbo_stream
     end
   end
